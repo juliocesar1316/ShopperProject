@@ -1,0 +1,19 @@
+{
+  "name": "shopper_measure",
+  "version": "1.0.0",
+  "description": "CENÁRIO Vamos desenvolver o back-end de um serviço que gerencia a leitura individualizada de  consumo de água e gás. Para facilitar a coleta da informação, o serviço utilizará IA para  obter a medição através da foto de um medidor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliocesar1316/ShopperProject.git"
+  },
+  "author": "Julio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliocesar1316/ShopperProject/issues"
+  },
+  "homepage": "https://github.com/juliocesar1316/ShopperProject#readme"
+}
