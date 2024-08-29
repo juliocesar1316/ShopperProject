@@ -10,7 +10,6 @@ O back-end deverá conter os seguintes endpoints:
 
 <b>POST /upload</b>
 
-
 <p align="justify">Responsável por receber uma imagem em base 64, consultar o Gemini e retornar a 
 medida lida pela API
 
@@ -25,36 +24,36 @@ Ela irá retornar:
 - Um link temporário para a imagem
 - Um GUID
 - O valor numérico reconhecido pela LLM
-Request Body
-{
- "image": "base64",
- "customer_code": "string",
- "measure_datetime": "datetime",
- "measure_type": "WATER" ou "GAS"
-}
-Response Body:
-Status 
-Code
-Descrição Resposta
-200 Operação realizada com sucesso {
- “image_url”: string,
- “measure_value”:integer,
- “measure_uuid”: string
-}
-400 Os dados fornecidos no corpo da 
-requisição são inválidos
-{
- "error_code": "INVALID_DATA",
- "error_description": <descrição do 
-erro>
-}
-409 Já existe uma leitura para este tipo 
-no mês atual
-{
- "error_code": "DOUBLE_REPORT",
- "error_description": "Leitura do mês já 
-realizada"
-}`
+  Request Body
+  {
+  "image": "base64",
+  "customer_code": "string",
+  "measure_datetime": "datetime",
+  "measure_type": "WATER" ou "GAS"
+  }
+  Response Body:
+  Status
+  Code
+  Descrição Resposta
+  200 Operação realizada com sucesso {
+  “image_url”: string,
+  “measure_value”:integer,
+  “measure_uuid”: string
+  }
+  400 Os dados fornecidos no corpo da
+  requisição são inválidos
+  {
+  "error_code": "INVALID_DATA",
+  "error_description": <descrição do
+  erro>
+  }
+  409 Já existe uma leitura para este tipo
+  no mês atual
+  {
+  "error_code": "DOUBLE_REPORT",
+  "error_description": "Leitura do mês já
+  realizada"
+  }`
 Documentação técnica do Google Gemini (LLM):
 https://ai.google.dev/gemini-api/docs/api-key
 https://ai.google.dev/gemini-api/docs/vision
@@ -96,54 +95,54 @@ erro>
  "error_description": "Leitura do mês já 
 realizada"
 }`
-409 Leitura já confirmada {
- "error_code": 
-"CONFIRMATION_DUPLICATE",
- "error_description": "Leitura do mês já 
-realizada"
-}`
-GET /<customer code>/list
-Responsável por listar as medidas realizadas por um determinado cliente
-Esse endpoint deve:
-• Receber o código do cliente e filtrar as medidas realizadas por ele
-• Ele opcionalmente pode receber um query parameter “measure_type”, que 
-deve ser “WATER” ou “GAS”
-▪ A validação deve ser CASE INSENSITIVE
-▪ Se o parâmetro for informado, filtrar apenas os valores do tipo 
-especificado. Senão, retornar todos os tipos.
-Ex. {base url}/<customer code>/list?measure_type=WATER
-Ela irá retornar:
-• Uma lista com todas as leituras realizadas.
-Response Body:
-Status Code Descrição Resposta
-200 Operação realizada com sucesso {
- “customer_code”: string,
- “measures”: [
- {
- “measure_uuid”: string,
- “measure_datetime”: datetime,
- “measure_type”: string,
- “has_confirmed”:boolean,
- “image_url”: string
- },
- {
- “measure_uuid”: string,
- “measure_datetime”: datetime,
- “measure_type”: string,
- “has_confirmed”:boolean,
- “image_url”: string
- }
- ]
-}
-400 Parâmetro measure type 
-diferente de WATER ou GAS
-{
- "error_code": "INVALID_TYPE",
- "error_description": “Tipo de medição não 
-permitida”
-}
-404 Nenhum registro encontrado {
- "error_code": "MEASURES_NOT_FOUND",
- "error_description": "Nenhuma leitura 
-encontrada"
-}
+  409 Leitura já confirmada {
+  "error_code":
+  "CONFIRMATION_DUPLICATE",
+  "error_description": "Leitura do mês já
+  realizada"
+  }`
+  GET /<customer code>/list
+  Responsável por listar as medidas realizadas por um determinado cliente
+  Esse endpoint deve:
+  • Receber o código do cliente e filtrar as medidas realizadas por ele
+  • Ele opcionalmente pode receber um query parameter “measure_type”, que
+  deve ser “WATER” ou “GAS”
+  ▪ A validação deve ser CASE INSENSITIVE
+  ▪ Se o parâmetro for informado, filtrar apenas os valores do tipo
+  especificado. Senão, retornar todos os tipos.
+  Ex. {base url}/<customer code>/list?measure_type=WATER
+  Ela irá retornar:
+  • Uma lista com todas as leituras realizadas.
+  Response Body:
+  Status Code Descrição Resposta
+  200 Operação realizada com sucesso {
+  “customer_code”: string,
+  “measures”: [
+  {
+  “measure_uuid”: string,
+  “measure_datetime”: datetime,
+  “measure_type”: string,
+  “has_confirmed”:boolean,
+  “image_url”: string
+  },
+  {
+  “measure_uuid”: string,
+  “measure_datetime”: datetime,
+  “measure_type”: string,
+  “has_confirmed”:boolean,
+  “image_url”: string
+  }
+  ]
+  }
+  400 Parâmetro measure type
+  diferente de WATER ou GAS
+  {
+  "error_code": "INVALID_TYPE",
+  "error_description": “Tipo de medição não
+  permitida”
+  }
+  404 Nenhum registro encontrado {
+  "error_code": "MEASURES_NOT_FOUND",
+  "error_description": "Nenhuma leitura
+  encontrada"
+  }

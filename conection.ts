@@ -1,10 +1,7 @@
 import { Pool } from 'pg';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const bd = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: 'postgres://postgres:shopper@db:5432/customersMeasure'
 });
 
 export default bd; 
