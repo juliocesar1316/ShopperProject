@@ -1,10 +1,13 @@
 import express from 'express';
-import upload from './src/controlers/index'
+import {upload, serveImage} from './src/controlers/upload';
+import { confirmData } from './src/controlers/confirm';
+import { listCustomer } from './src/controlers/customers';
 
-const rotes = express();
+const routes = express.Router();
 
-rotes.use('/upload', upload);
-// rotes.use('/confirm', confirmRoutes);
-// rotes.use('/:customerCode/list', listRoutes);
+routes.post('/upload', upload);
+routes.get('/images/:filename', serveImage);
+routes.patch('/confirm', confirmData);
+routes.get('/:customerCode/list/', listCustomer);
 
-export default rotes;
+export default routes;

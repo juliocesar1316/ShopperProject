@@ -12,6 +12,7 @@ services:
       - "${POSTGRES_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./bd.sql:/docker-entrypoint-initdb.d/bd.sql
     networks:
       - app_network
 
@@ -21,6 +22,9 @@ services:
     environment:
       DATABASE_URL: ${DATABASE_URL}
       NODE_PORT: ${NODE_PORT}
+    volumes:
+      - ./uploads:/usr/src/app/uploads
+      - .:/usr/src/app
     ports:
       - "${NODE_PORT}:80"
     depends_on:
