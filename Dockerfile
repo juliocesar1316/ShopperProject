@@ -10,6 +10,8 @@ COPY package*.json ./
 # Instalar dependências
 RUN npm install
 
+RUN npm install ts-node
+
 # Copiar o código fonte
 COPY . .
 

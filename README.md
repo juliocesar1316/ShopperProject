@@ -1,6 +1,15 @@
 # ShopperProject
 
-# CENÁRIO
+## Guia de início rápido
+
+- Clone o repositório: https://github.com/juliocesar1316/ShopperProject.git
+- Instale as dependências: **npm install**
+- Suba os containers Docker: **docker-compose up --build**
+- Assim que subir o container ele estara rodando
+- O projeto estará disponível em **`http://localhost:80/`**
+- Documentação swagger para visualizar os endpoint **http://localhost:80/api-docs** 
+
+## CENÁRIO
 
 <p align="justify">Vamos desenvolver o back-end de um serviço que gerencia a leitura individualizada de 
 consumo de água e gás. Para facilitar a coleta da informação, o serviço utilizará IA para 

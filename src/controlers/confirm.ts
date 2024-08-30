@@ -1,6 +1,80 @@
 import { Request, Response } from 'express';
 import { confirmSchema, hasConfirmed, hasUuid, saveData } from '../services/confirmService';
 
+/**
+ * @swagger
+ * /confirm:
+ *   patch:
+ *     summary: Confirma a leitura de uma medição
+ *     description: Endpoint para confirmar uma leitura de medição com base em um UUID. O valor da medição confirmada será salvo no banco de dados.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               measure_uuid:
+ *                 type: string
+ *                 format: uuid
+ *                 description: UUID da medição a ser confirmada.
+ *               confirmed_value:
+ *                 type: number
+ *                 description: Valor confirmado da medição.
+ *             required:
+ *               - measure_uuid
+ *               - confirmed_value
+ *     responses:
+ *       200:
+ *         description: Confirmação bem-sucedida da medição.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *       400:
+ *         description: Dados inválidos fornecidos na solicitação.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error_code:
+ *                   type: string
+ *                   example: INVALID_DATA
+ *                 error_description:
+ *                   type: string
+ *                   example: "Mensagem de erro detalhada."
+ *       404:
+ *         description: Medição não encontrada com o UUID fornecido.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error_code:
+ *                   type: string
+ *                   example: MEASURE_NOT_FOUND
+ *                 error_description:
+ *                   type: string
+ *                   example: "Leitura do mês já realizada"
+ *       409:
+ *         description: A medição já foi confirmada anteriormente.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error_code:
+ *                   type: string
+ *                   example: CONFIRMATION_DUPLICATE
+ *                 error_description:
+ *                   type: string
+ *                   example: "Leitura do mês já realizada"
+ */
 
 export const confirmData = async (req: Request, res: Response) => {
     const { error } = confirmSchema.validate(req.body);

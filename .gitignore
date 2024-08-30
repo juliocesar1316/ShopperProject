@@ -1,2 +1,4 @@
 .env
 querys.sql
+node_modules
+uploads
