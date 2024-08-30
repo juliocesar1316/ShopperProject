@@ -1,7 +1,10 @@
 import { Pool } from 'pg';
+import config from './config';
+
+const baseUrl = config.databaseUrl;
 
 const bd = new Pool({
-  connectionString: 'postgres://postgres:shopper@db:5432/customersMeasure'
+  connectionString: baseUrl
 });
 
 export default bd; 
