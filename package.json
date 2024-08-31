@@ -1,19 +1,36 @@
 {
-  "name": "shopper_measure",
+  "name": "shopperproject",
   "version": "1.0.0",
-  "description": "CENÁRIO Vamos desenvolver o back-end de um serviço que gerencia a leitura individualizada de  consumo de água e gás. Para facilitar a coleta da informação, o serviço utilizará IA para  obter a medição através da foto de um medidor",
-  "main": "index.js",
+  "description": "<p align=\"justify\">Vamos desenvolver o back-end de um serviço que gerencia a leitura individualizada de \r consumo de água e gás. Para facilitar a coleta da informação, o serviço utilizará IA para \r obter a medição através da foto de um medidor.\r O back-end deverá conter os seguintes endpoints:\r </p>",
+  "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node app.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/juliocesar1316/ShopperProject.git"
-  },
-  "author": "Julio",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/juliocesar1316/ShopperProject/issues"
+  "dependencies": {
+    "@google/generative-ai": "^0.17.1",
+    "@types/knex": "^0.16.1",
+    "@types/uuid": "^10.0.0",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.3",
+    "pg": "^8.12.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^10.0.0"
   },
-  "homepage": "https://github.com/juliocesar1316/ShopperProject#readme"
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/pg": "^8.11.8",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
 }
