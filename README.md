@@ -14,7 +14,7 @@
 
 - A aplicação só ira rodar quando as dependências estiverem sidos instaladas então será necessário executar o comando **npm install**
 - Ás portas de acesso estão disponível para a porta 80, em caso de troca de porta de acesso será necessário alterar as portas do arquivo **Dockerfile**, **config.ts** e o arquivo **docker-compose.yml**.
-- A dependência que faz a conexão com a AI LLM utiliza o node 18, caso retorne erro será necessário atualizar o node.
+- A dependência que faz a conexão com a IA LLM utiliza o node 18, caso retorne erro será necessário atualizar o node.
 
 ### CENÁRIO
 
