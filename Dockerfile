@@ -1,14 +1,14 @@
 # Usando uma imagem base oficial do Node.js
 FROM node:18
 
-# Instalar dependências
-RUN npm install
-
 # Definir o diretório de trabalho no container
 WORKDIR /usr/src/app
 
 # Copiar o package.json e package-lock.json para o diretório de trabalho
 COPY package*.json ./
+
+# Instalar dependências
+RUN npm install
 
 # Copiar o código fonte
 COPY . .
